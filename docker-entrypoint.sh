@@ -19,16 +19,19 @@ case "$@" in
             tail  -f /dev/null
             ;;
         chia_wallet)
+	    cp /root/.chia-config/mainnet/config/config.yaml /root/.chia/mainnet/config/config.yaml
 	    chia keys add -f /root/.seed/keys.txt
             chia start wallet-only
             tail  -f /dev/null
             ;;
         chia_farmer)
+	    cp /root/.chia-config/mainnet/config/config.yaml /root/.chia/mainnet/config/config.yaml
 	    chia keys add -f /root/.seed/keys.txt
             chia start farmer-only
             tail  -f /dev/null
             ;;
         chia_harvester)
+	    cp /root/.chia-config/mainnet/config/config.yaml /root/.chia/mainnet/config/config.yaml
 	    chia keys add -f /root/.seed/keys.txt
             chia start harvester
             tail  -f /dev/null
