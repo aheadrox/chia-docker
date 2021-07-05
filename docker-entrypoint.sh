@@ -14,8 +14,8 @@ case "$@" in
             ;;
         chia_fullnode)
             chia start node
-	    sleep 120
-	    curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}' | while read line; do timeout 5s chia show -a $line:8444 ;done
+	    #sleep 120
+	    #curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}' | while read line; do timeout 5s chia show -a $line:8444 ;done
             tail  -f /dev/null
             ;;
         chia_wallet)
