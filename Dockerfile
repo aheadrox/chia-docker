@@ -1,12 +1,13 @@
 FROM python:3
 
 #COPY healthcheck.sh /usr/local/bin
+RUN python -m pip install --upgrade pip
 
 RUN git clone https://github.com/Chia-Network/chia-blockchain.git && \
     cd chia-blockchain && \
-    git checkout tags/1.1.7 -b 1.1.7 && \
+    git checkout tags/1.2.0 -b 1.2.0 && \
     git submodule update --init --recursive && \
-    pip install --extra-index-url https://pypi.chia.net/simple/ miniupnpc==2.1 && \
+    pip install --extra-index-url https://pypi.chia.net/simple/ miniupnpc==2.2.2 && \
     pip install -e . --extra-index-url https://pypi.chia.net/simple/ && \
     chia init
 
