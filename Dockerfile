@@ -1,6 +1,7 @@
 FROM python:3
 
 ENV TESTNET="false"
+ENV CHAIN="mainnet"
 
 #COPY healthcheck.sh /usr/local/bin
 RUN python -m pip install --upgrade pip
