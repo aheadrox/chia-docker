@@ -5,6 +5,10 @@ chia init -c /root/.ca
 mkdir -p /root/.chia/${CHAIN}/config
 cp /root/.chia-config/${CHAIN}/config/config.yaml /root/.chia/${CHAIN}/config/config.yaml
 
+if [[ ${TESTNET} == "true" ]]; then
+  chia configure --testnet true
+fi
+
 case "$@" in
         chia_daemon)
             chia run_daemon
