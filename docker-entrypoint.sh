@@ -9,11 +9,13 @@ case "$@" in
             tail  -f /dev/null
             ;;
         chia_introducer)
+	    mkdir -p /root/.chia/${CHAIN}/config
 	    cp /root/.chia-config/${CHAIN}/config/config.yaml /root/.chia/${CHAIN}/config/config.yaml
             chia start introducer
             tail  -f /dev/null
             ;;
         chia_fullnode)
+	    mkdir -p /root/.chia/${CHAIN}/config
 	    cp /root/.chia-config/${CHAIN}/config/config.yaml /root/.chia/${CHAIN}/config/config.yaml
             chia start node
 	    #sleep 120
@@ -21,18 +23,21 @@ case "$@" in
             tail  -f /dev/null
             ;;
         chia_wallet)
+	    mkdir -p /root/.chia/${CHAIN}/config
 	    cp /root/.chia-config/${CHAIN}/config/config.yaml /root/.chia/${CHAIN}/config/config.yaml
 	    chia keys add -f /root/.seed/keys.txt
             chia start wallet-only
             tail  -f /dev/null
             ;;
         chia_farmer)
+	    mkdir -p /root/.chia/${CHAIN}/config
 	    cp /root/.chia-config/${CHAIN}/config/config.yaml /root/.chia/${CHAIN}/config/config.yaml
 	    chia keys add -f /root/.seed/keys.txt
             chia start farmer-only
             tail  -f /dev/null
             ;;
         chia_harvester)
+	    mkdir -p /root/.chia/${CHAIN}/config
 	    cp /root/.chia-config/mainnet/config/config.yaml /root/.chia/mainnet/config/config.yaml
 	    chia keys add -f /root/.seed/keys.txt
             chia start harvester
